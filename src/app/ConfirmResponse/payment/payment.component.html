@@ -1,0 +1,126 @@
+<div id="ConfirmDetails">
+  <h2 id="heading2" class="text-danger">Payment</h2>
+  <div class="row">
+    <div class="container-fluid d-flex justify-content-center">
+      <form
+        [formGroup]="paymentForm"
+        (ngSubmit)="onSubmit()"
+        id="paymentForm"
+        name="paymentForm"
+      >
+        <div class="form-group" #creditCardNumberElement>
+          <label class="label" for="creditCardNumber">Credit Card Number</label>
+          <input
+            [readonly]="isLoading || paymentSuccessful"
+            type="text"
+            class="form-control"
+            id="creditCardNumber"
+            formControlName="creditCardNumber"
+            placeholder="0000-0000-0000-0000"
+            name="creditCardNumber"
+          />
+          <div>
+            <span
+              class="message"
+              *ngIf="
+                registerFormControl['creditCardNumber'].invalid &&
+                registerFormControl['creditCardNumber'].dirty
+              "
+              style="color: rgb(218, 11, 11); font-size: x-small"
+              >Enter 16 digit credit card number</span
+            >
+            <br />
+            <span
+              class="message"
+              *ngIf="registerFormControl['creditCardNumber'].errors?.['pattern']"
+              style="color: rgb(218, 11, 11); font-size: x-small"
+              >credit card number should only contain numbers</span
+            >
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="label" for="creditLimit">Credit Card limit</label>
+          <input
+            [readonly]="isLoading || paymentSuccessful"
+            type="number"
+            class="form-control"
+            id="creditLimit"
+            formControlName="creditLimit"
+            placeholder="Enter your credit Card limit"
+            name="creditLimit"
+          />
+        </div>
+        <div>
+          <span
+            class="message"
+            *ngIf="
+              registerFormControl['creditLimit'].invalid &&
+              registerFormControl['creditLimit'].dirty
+            "
+            style="color: rgb(218, 11, 11); font-size: x-small"
+            >Enter valid credit card limit</span
+          >
+          <br />
+          <span
+            class="message"
+            *ngIf="registerFormControl['creditLimit'].errors?.['min']"
+            style="color: rgb(218, 11, 11); font-size: x-small"
+            >limit should be greater than total bill amount</span
+          >
+        </div>
+        <button
+          class="proceed"
+          type="submit"
+          *ngIf="
+            paymentForm.valid &&
+            !isLoading &&
+            !paymentSuccessful &&
+            !paymentFailed
+          "
+        >
+          <span class="circle" aria-hidden="true">
+            <span class="icon arrow"></span>
+          </span>
+          <span class="button-text">Confirm</span>
+        </button>
+        <img
+          src="/assets/loadingPayment.gif"
+          alt="pending payment"
+          *ngIf="isLoading"
+          height="100px"
+        />
+        <img
+          src="https://www.fourfolds.in/assets/designer/themes/default/images/noresult.gif"
+          alt="pending payment"
+          *ngIf="!paymentForm.valid && !isLoading && !paymentSuccessful"
+          height="150px"
+        />
+        <img
+          src="https://i.pinimg.com/originals/a1/05/7d/a1057dcb644d8729f4f76b2032f21743.gif"
+          alt="pending payment"
+          *ngIf="paymentSuccessful && !isLoading"
+          height="150px"
+        />
+        <img
+          src="https://cdn.dribbble.com/users/1000837/screenshots/3857924/loader_failed_01.gif"
+          alt="pending payment"
+          *ngIf="!paymentSuccessful && !isLoading && paymentFailed"
+          height="100px"
+        />
+        <div>
+          <button
+            class="proceed"
+            type="button"
+            *ngIf="!paymentSuccessful && !isLoading && paymentFailed"
+            (click)="tryAgain()"
+          >
+            <span class="circle" aria-hidden="true">
+              <span class="icon arrow"></span>
+            </span>
+            <span class="button-text">Try again</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

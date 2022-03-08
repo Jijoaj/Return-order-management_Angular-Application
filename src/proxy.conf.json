@@ -1,0 +1,18 @@
+{
+  "/oauth": {
+    "target": "http://Return-order-management-2042101844.us-east-2.elb.amazonaws.com:44446",
+    "secure": false
+  },
+  "/ProcessDetail": {
+    "target": "http://Return-order-management-2042101844.us-east-2.elb.amazonaws.com:8000/component-processing",
+    "secure": false
+  },
+  "/signup": {
+    "target": "http://Return-order-management-2042101844.us-east-2.elb.amazonaws.com:44446",
+    "secure": false
+  },
+  "/CompleteProcessing": {
+    "target": "http://Return-order-management-2042101844.us-east-2.elb.amazonaws.com:8000/component-processing",
+    "secure": false
+  }
+}

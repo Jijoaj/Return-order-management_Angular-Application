@@ -1,0 +1,65 @@
+<app-sub-header></app-sub-header>
+<section
+  id="RequestDetails"
+  class="d-flex justify-content-center align-items-center"
+>
+  <div id="row" class="row text-center">
+    <div class="col-md-5" id="RequestContents">
+      <div id="RequestHeader">
+        <h2 class="text-danger">Request details</h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-7 col-8 mt-4 pl-4 line">
+          <h2 class="property property-head">Request Id</h2>
+        </div>
+        <div class="col-lg-5 col-4 mt-4">
+          <h2 class="px-xl-5 px-lg-4 date">
+            {{ currentResponseData.requestId }}
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-7 col-8 mt-4 pl-4 line">
+          <h2 class="property property-head">Date Of Delivery</h2>
+        </div>
+        <div class="col-lg-5 col-4 mt-4">
+          <h3 class="pl-xl-5 px-lg-4 date" id="response">
+            {{ currentResponseData.dateOfDelivery }}
+          </h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-7 col-8 mt-4 pl-4 line">
+          <h2 class="property property-head">Processing Charge</h2>
+        </div>
+        <div class="col-lg-5 col-4 mt-4">
+          <h2 class="px-xl-5 px-lg-4 date">
+            {{ currentResponseData.processingCharge }}
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-7 col-8 mt-4 pl-4 line">
+          <h2 class="property property-head">Packaging & Delivery Charge</h2>
+        </div>
+        <div class="col-lg-5 col-4 mt-4">
+          <h2 class="px-xl-5 px-lg-4 date">
+            {{ currentResponseData.packagingAndDeliveryCharge }}
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 red-bg">
+          <p id="total-label">Total Price</p>
+          <h2 id="total">INR {{ totalCharge }}</h2>
+          <small class="small-text" id="total-label"
+            >Price includes all taxes</small
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</section>

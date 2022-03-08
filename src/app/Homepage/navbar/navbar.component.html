@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-md navbar-dark">
+  <a class="navbar-brand d-block d-md-none" routerLink="/home">
+    <img
+      src="https://findicons.com/files/icons/2718/pretty_office_icon_set_part_11/128/add_item.png"
+      width="30"
+      height="30"
+      alt=""
+    />
+  </a>
+  <a class="navbar-brand d-none d-md-block" id="brand" routerLink="/home">
+    <h3 class="mb-0">Return Order Management</h3>
+  </a>
+  <button
+    class="navbar-toggler"
+    data-toggle="collapse"
+    data-target="#mainNavBar"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="mainNavBar">
+    <ul class="navbar-nav ml-auto">
+      <a id="home" href="" class="nav-link" routerLink="/home">Home</a>
+      <a id="logout" href="" class="nav-link"  (click)="logout()" *ngIf="isAuthenticated">Logout</a>
+      <a id="logout" href="" class="nav-link"  routerLink="/login" *ngIf="!isAuthenticated">Login</a>
+    </ul>
+  </div>
+</nav>

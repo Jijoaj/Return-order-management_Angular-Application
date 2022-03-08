@@ -1,0 +1,139 @@
+#RequestSection {
+  z-index: 2;
+  height: 600px;
+  width: 100%;
+  margin-top: -260px;
+  position: relative;
+}
+
+#requestFormDiv {
+  background: #ffcf55;
+  font-size: 1.5rem;
+  border-radius: 2rem;
+  border-bottom: 10px solid #d09b52;
+}
+#row {
+  width: 40%;
+  height: 75%;
+}
+
+#requestForm {
+  width: 100%;
+}
+
+#FormContainer {
+  width: 70%;
+  margin-top: 1rem;
+}
+
+.btn1 {
+  background-image: linear-gradient(
+    45deg,
+    #494e4b 0%,
+    #676b66 51%,
+    #494e4b 100%
+  );
+  /* background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%); */
+}
+
+.btn2 {
+  background-image: linear-gradient(
+    45deg,
+    #ff512f 0%,
+    #f09819 51%,
+    #ff512f 100%
+  );
+  /* background-image: linear-gradient(45deg, #494e4b 0%, #676b66  51%, #494e4b  100%); */
+}
+
+.btn:disabled {
+  display: none;
+}
+
+.btn {
+  margin: 10px;
+  padding: 10px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #f09819;
+}
+
+.btn:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.label {
+  font-family: Roboto, sans-serif;
+}
+
+.form-control {
+  font-family: Roboto, sans-serif;
+}
+
+#componentName {
+  border: none;
+  padding: 15px 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.6);
+}
+#contactNumber {
+  border: none;
+  padding: 15px 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.6);
+}
+#quantity {
+  border: none;
+  padding: 15px 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.6);
+}
+#componentType {
+  border: none;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+span {
+  font-size: small;
+  text-align: center;
+  width: 200px;
+  align-content: center;
+}
+
+@media (max-width: 768px) {
+  #requestShowcase {
+    min-height: 350px;
+  }
+
+  #FormContainer {
+    width: 100%;
+    font-size: small;
+  }
+  #row {
+    width: 80%;
+  }
+
+  .label {
+    display: none;
+  }
+
+  #RequestSection {
+    margin-top: -160px;
+    height: 400px;
+  }
+}

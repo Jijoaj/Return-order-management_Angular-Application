@@ -1,0 +1,41 @@
+.lead {
+  color: white;
+}
+
+#showcase {
+  background: url("/assets/showcase2.png") bottom center/ cover no-repeat;
+  min-height: 400px;
+  position: relative;
+}
+#overlay {
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+#header {
+  z-index: 2;
+}
+h1 {
+  font-family: "Questrial", sans-serif;
+  line-height: 1;
+}
+
+#book {
+  font-size: 1.5rem;
+  border-radius: 2rem;
+}
+
+
+
+@media (max-width: 768px) {
+  #showcase {
+    min-height: 350px;
+  }
+  h1 {
+    font-size: 4rem;
+  }
+}

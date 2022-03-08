@@ -1,0 +1,209 @@
+<app-sub-header></app-sub-header>
+<div class="login-wrap">
+  <div class="login-html">
+    <input id="tab-1" type="radio" name="tab" class="sign-in" checked /><label
+      for="tab-1"
+      class="tab"
+      >Sign In</label
+    >
+    <input id="tab-2" type="radio" name="tab" class="sign-up" /><label
+      for="tab-2"
+      class="tab"
+      >Sign Up</label
+    >
+    <form class="login-form" #loginForm="ngForm" *ngIf="!isLoading">
+      <div class="sign-in-htm">
+        <div class="form-group">
+          <label for="user" class="label">Username</label>
+          <input
+            id="user-signin"
+            type="text"
+            class="form-control"
+            ngModel
+            name="signInUserName"
+            #signInUserName="ngModel"
+            required
+            minlength="5"
+            maxlength="15"
+            pattern="[a-zA-Z]*"
+          />
+        </div>
+        <div
+          *ngIf="
+            signInUserName.invalid &&
+            (signInUserName.dirty || signInUserName.touched)
+          "
+          class="alert"
+        >
+          <div *ngIf="signInUserName.errors?.['required']">
+            Name is required.
+          </div>
+          <div *ngIf="signInUserName.errors?.['minlength']">
+            Name must be at least 5 characters long.
+          </div>
+          <div *ngIf="signInUserName.errors?.['maxlength']">
+            Name must be at maximum 15 characters long.
+          </div>
+          <div *ngIf="signInUserName.errors?.['pattern']">
+            Name must contain alphabets only.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pass" class="label">Password</label>
+          <input
+            id="pass-signin"
+            type="password"
+            class="form-control"
+            data-type="password"
+            ngModel
+            name="signInPassword"
+            required
+            #signInPassword="ngModel"
+            minlength="6"
+            maxlength="20"
+          />
+        </div>
+        <div
+          *ngIf="
+            signInPassword.invalid &&
+            (signInPassword.dirty || signInPassword.touched)
+          "
+          class="alert"
+        >
+          <div *ngIf="signInPassword.errors?.['required']">
+            Password is required.
+          </div>
+          <div *ngIf="signInPassword.errors?.['minlength']">
+            Password must be at least 6 characters long.
+          </div>
+          <div *ngIf="signInPassword.errors?.['maxlength']">
+            Password must be at maximum 20 characters long.
+          </div>
+        </div>
+        <div class="foot-lnk">
+          <span *ngIf="errorOccuredSignIn">{{ errorOccuredSignIn }}</span>
+        </div>
+        <div class="form-group">
+          <button
+            type="submit"
+            class="button"
+            (click)="onSignIn(loginForm)"
+            [ngStyle]="{
+              background:
+                signInPassword.valid && signInUserName.valid
+                  ? 'red'
+                  : '#494e4b',
+              cursor:
+                signInPassword.valid && signInUserName.valid
+                  ? 'pointer'
+                  : 'not-allowed'
+            }"
+            [disabled]="signInPassword.invalid && signInUserName.invalid"
+          >
+            Sign In
+          </button>
+        </div>
+        <div class="hr"></div>
+      </div>
+      <!-- </form>
+			<form class="login-form" #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm)" *ngIf="!isLoading"> -->
+      <div class="sign-up-htm">
+        <div class="form-group">
+          <label for="user" class="label">Username</label>
+          <input
+            id="user"
+            type="text"
+            class="form-control"
+            ngModel
+            name="signUpUserName"
+            #signUpUserName="ngModel"
+            required
+            minlength="5"
+            maxlength="15"
+            pattern="[a-zA-Z]*"
+          />
+        </div>
+        <div
+          *ngIf="
+            signUpUserName.invalid &&
+            (signUpUserName.dirty || signUpUserName.touched)
+          "
+          class="alert"
+        >
+          <div *ngIf="signUpUserName.errors?.['required']">
+            Name is required.
+          </div>
+          <div *ngIf="signUpUserName.errors?.['minlength']">
+            Name must be at least 5 characters long.
+          </div>
+          <div *ngIf="signUpUserName.errors?.['maxlength']">
+            Name must be at maximum 15 characters long.
+          </div>
+          <div *ngIf="signUpUserName.errors?.['pattern']">
+            Name must contain alphabets only.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pass" class="label">Password</label>
+          <input
+            id="pass"
+            type="password"
+            class="form-control"
+            data-type="password"
+            ngModel
+            name="signUpPassword"
+            #signUpPassword="ngModel"
+            required
+            minlength="6"
+            maxlength="20"
+          />
+        </div>
+        <div
+          *ngIf="
+            signUpPassword.invalid &&
+            (signUpPassword.dirty || signUpPassword.touched) &&
+            signUpUserName.valid
+          "
+          class="alert"
+        >
+          <div *ngIf="signUpPassword.errors?.['required']">
+            Password is required.
+          </div>
+          <div *ngIf="signUpPassword.errors?.['minlength']">
+            Password must be at least 6 characters long.
+          </div>
+          <div *ngIf="signUpPassword.errors?.['maxlength']">
+            Password must be at maximum 20 characters long.
+          </div>
+        </div>
+        <div class="foot-lnk">
+          <span *ngIf="errorOccuredSignUp">{{ errorOccuredSignUp }}</span>
+        </div>
+        <div class="form-group">
+          <button
+            type="submit"
+            class="button"
+            value="Sign Up"
+            (click)="onSignup(loginForm)"
+            [ngStyle]="{
+              background:
+                signUpPassword.valid && signUpUserName.valid
+                  ? 'red'
+                  : '#494e4b',
+              cursor:
+                signUpPassword.valid && signUpUserName.valid
+                  ? 'pointer'
+                  : 'not-allowed'
+            }"
+            [disabled]="signUpPassword.invalid && signUpUserName.invalid"
+          >
+            Sign Up
+          </button>
+        </div>
+        <div class="foot-lnk">
+          <label for="tab-1">Already Member?</label>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

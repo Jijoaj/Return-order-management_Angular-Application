@@ -1,0 +1,21 @@
+{
+    "/oauth": {
+      "target": "http://LB-ROM-844379-532799361.sa-east-1.elb.amazonaws.com:8080",
+      "secure": false
+    },
+    "/ProcessDetail": {
+        "target": "http://LB-ROM-ComponentProcessing-314443164.sa-east-1.elb.amazonaws.com:8080",
+        "secure": false
+      },
+      "/signup": {
+        "target": "http://LB-ROM-844379-532799361.sa-east-1.elb.amazonaws.com:8080",
+        "secure": false
+      },
+      "/CompleteProcessing": {
+          "target": "http://LB-ROM-ComponentProcessing-314443164.sa-east-1.elb.amazonaws.com:8080",
+          "secure": false
+        }
+
+
+      
+  }
